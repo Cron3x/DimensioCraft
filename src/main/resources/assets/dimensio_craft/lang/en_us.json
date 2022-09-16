@@ -1,0 +1,11 @@
+{
+  "item.dimensio_craft.citrine": "Citrine",
+  "item.dimensio_craft.elevator_destination_chip": "Elevator Destination Chip",
+  "item.dimensio_craft.elevator_upgrade_chip": "Elevator Upgrade Chip",
+
+  "block.dimensio_craft.citrine_block": "Citrine Block",
+  "block.dimensio_craft.iron_structure_frame": "Iron Structure Frame",
+  "block.dimensio_craft.elevator_controller": "Elevator Controller",
+
+  "itemGroup.dimensiotab": "Dimensio Craft"
+}

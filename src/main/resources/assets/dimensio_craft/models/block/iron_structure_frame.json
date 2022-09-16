@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dimensio_craft:block/iron_structure_frame"
+  }
+}

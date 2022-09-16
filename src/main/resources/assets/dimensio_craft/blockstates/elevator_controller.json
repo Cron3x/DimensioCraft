@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model":  "dimensio_craft:block/elevator_controller"
+    },
+    "facing=east": {
+      "model":  "dimensio_craft:block/elevator_controller",
+      "y": 90
+    },
+    "facing=south": {
+      "model":  "dimensio_craft:block/elevator_controller",
+      "y": 180
+    },
+    "facing=west": {
+      "model":  "dimensio_craft:block/elevator_controller",
+      "y": 270
+    }
+  }
+}

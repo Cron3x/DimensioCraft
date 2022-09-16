@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "xyz.eburg.cron3x.dimensio_craft.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dimensio_craft.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapless",
+  "ingredients":  [
+    {
+      "item": "dimensio_craft:citrine_block"
+    }
+  ],
+  "result": {
+    "item": "dimensio_craft:citrine",
+    "count": 9
+  }
+}
