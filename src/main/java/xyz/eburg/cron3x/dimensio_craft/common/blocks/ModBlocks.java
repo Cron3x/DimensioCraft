@@ -24,13 +24,17 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
     public static final RegistryObject<Block> STRUCTURE_FRAME_IRON_BLOCK = registerBlock("iron_structure_frame",
-            () -> new BeaconBlock(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new SlimeBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .strength(9f)
+                    .dynamicShape()
                     .requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
     public static final RegistryObject<Block> ELEVATOR_CONTROLLER = registerBlock("elevator_controller",
-            () -> new FurnaceBlock(BlockBehaviour.Properties.of(Material.METAL).strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
+            () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
+
+    public static final RegistryObject<Block> COMPUTER_BLOCK = registerBlock("computer",
+            () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
