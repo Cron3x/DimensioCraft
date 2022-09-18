@@ -26,7 +26,7 @@ public class ExampleChestContainer extends AbstractContainerMenu {
         super(ModContainers.EXAMPLE_CHEST.get(), id);
         this.containerAccess = ContainerLevelAccess.create(pInventory.player.level, pos);
 
-        final int slotSizePlus2 = 18, startX = 8, startY=159, hotbarY = 217, invY = 18; //slotSizePlus2 = 18, startX = 7, startY=85, hotbarY = 143, invY = 10
+        final int slotSizePlus2 = 18, startX = 8, startY=159, hotbarY = 217, invY = 18;
 
         for (int row = 0; row < 9; row++) {
             for (int column = 0; column < 7; column++) {
