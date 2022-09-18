@@ -17,6 +17,9 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
     public static RegistryObject<Item> ELEVATOR_UPGRADE_CHIP = ITEMS.register("elevator_upgrade_chip",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
+    public static RegistryObject<Item> ACTIVATION_TOOL = ITEMS.register("activation_tool",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
