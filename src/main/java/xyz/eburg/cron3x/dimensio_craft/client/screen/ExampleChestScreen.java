@@ -3,7 +3,6 @@ package xyz.eburg.cron3x.dimensio_craft.client.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -12,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
 import xyz.eburg.cron3x.dimensio_craft.DimensioCraft;
-import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ExampleChestBlockEntity;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ExampleChestContainer;
 
 
@@ -22,16 +20,37 @@ public class ExampleChestScreen extends AbstractContainerScreen<ExampleChestCont
 
     private ExtendedButton beanButton;
 
-    public ExampleChestScreen(ExampleChestContainer container, Inventory pInventory) {
-        super(container, pInventory, ExampleChestBlockEntity.TITLE);
+    public ExampleChestScreen(ExampleChestContainer container, Inventory pInventory, Component title) {
+        super(container, pInventory, title);
 
         this.leftPos = 0;
         this.topPos = 0;
-        this.imageWidth  = 240;
-        this.imageHeight = 176;
+        this.imageWidth  = 175;
+        this.imageHeight = 239;
     }
 
     //TODO: Tutorial Vid: https://www.youtube.com/watch?v=T8B-t30zmJw&list=PLaevjqy3XufahUjMFr9H-FDjgZ0uejPen&index=20
+
+    /*@Override
+    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
+        super.renderLabels(stack, mouseX, mouseY);
+        this.font.draw(stack, title, this.leftPos + 8, this.topPos+5, 0x404040);
+        this.font.draw(stack, playerInventoryTitle, this.leftPos + 8, this.topPos + 146, 0x404040);
+    }*/
+    @Override
+    public void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
+        super.render(stack, mouseX, mouseY, partialTicks);
+        this.font.draw(stack, this.title, this.leftPos + 20, this.topPos + 5, 0x404040);
+        this.font.draw(stack, this.playerInventoryTitle, this.leftPos + 8, this.topPos + 75, 0x404040);
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        this.beanButton = addRenderableWidget(new ExtendedButton(this.leftPos, this.topPos, 16,16, new TextComponent("..."), (btn) -> {
+            Minecraft.getInstance().player.displayClientMessage(new TextComponent("Please don't hit me :("), false);
+        }));
+    }
 
     @Override
     protected void renderBg(PoseStack stack, float mouseX, int mouseY, int partialTicks) {
@@ -40,19 +59,6 @@ public class ExampleChestScreen extends AbstractContainerScreen<ExampleChestCont
         RenderSystem.setShaderTexture(0, TEXTURE_LOCATION);
         blit(stack, this.leftPos, this.topPos, 0,0, this.imageWidth, this.imageHeight);
     }
-
     @Override
-    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
-        drawString(stack, font, title, this.leftPos + 8, this.topPos+3, 0x404040);
-        drawString(stack, font, playerInventoryTitle, this.leftPos + 8, this.topPos + 120, 0x404040);
-    }
-
-    @Override
-    protected void init() {
-        super.init();
-        this.beanButton = addRenderableWidget(new ExtendedButton(this.imageWidth - 30 + 10, this.topPos+3, 30,50, new TextComponent("beans"), (btn) -> {
-            assert Minecraft.getInstance().player != null;
-            Minecraft.getInstance().player.displayClientMessage(new TextComponent("JEY"), false);
-        }));
-    }
+    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {}
 }

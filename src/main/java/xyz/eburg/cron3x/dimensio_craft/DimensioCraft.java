@@ -18,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import xyz.eburg.cron3x.dimensio_craft.client.event.ClientModEvents;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.ModBlocks;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ModBlockEntities;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ModContainers;
@@ -46,7 +47,7 @@ public class DimensioCraft {
 
         // Register ourselves for server and other game events we are interested in
 
-        eventBus.addListener(this::clientSetup);
+        //eventBus.addListener(ClientModEvents::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -56,9 +57,6 @@ public class DimensioCraft {
         ModContainers.register(eventBus);
     }
 
-    private void clientSetup(final FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.STRUCTURE_FRAME_IRON_BLOCK.get(), RenderType.cutout());
-    }
     private void setup(final FMLCommonSetupEvent event) {
         // Some preinit code
         LOGGER.info("HELLO FROM PREINIT");

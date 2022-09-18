@@ -7,5 +7,7 @@
   "block.dimensio_craft.iron_structure_frame": "Iron Structure Frame",
   "block.dimensio_craft.elevator_controller": "Elevator Controller",
 
-  "itemGroup.dimensiotab": "Dimensio Craft"
+  "itemGroup.dimensiotab": "Dimensio Craft",
+
+  "container.dimensio_craft.example_chest": "Example Chest"
 }
