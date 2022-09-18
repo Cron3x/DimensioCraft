@@ -1,6 +1,7 @@
 package xyz.eburg.cron3x.dimensio_craft.common.blocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ExampleChestBlockEntity;
@@ -55,7 +57,7 @@ public class ExampleChestBlock extends HorizontalDirectionalBlock implements Ent
     }
 
     @Override
-    protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(FACING);
     }
