@@ -19,6 +19,8 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.ModBlocks;
+import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ModBlockEntities;
+import xyz.eburg.cron3x.dimensio_craft.common.container.ModContainers;
 import xyz.eburg.cron3x.dimensio_craft.common.items.ModItems;
 
 import java.util.stream.Collectors;
@@ -50,6 +52,8 @@ public class DimensioCraft {
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModBlockEntities.register(eventBus);
+        ModContainers.register(eventBus);
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
