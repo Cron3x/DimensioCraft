@@ -31,12 +31,6 @@ public class ExampleChestScreen extends AbstractContainerScreen<ExampleChestCont
 
     //TODO: Tutorial Vid: https://www.youtube.com/watch?v=T8B-t30zmJw&list=PLaevjqy3XufahUjMFr9H-FDjgZ0uejPen&index=20
 
-    /*@Override
-    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
-        super.renderLabels(stack, mouseX, mouseY);
-        this.font.draw(stack, title, this.leftPos + 8, this.topPos+5, 0x404040);
-        this.font.draw(stack, playerInventoryTitle, this.leftPos + 8, this.topPos + 146, 0x404040);
-    }*/
     @Override
     public void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
         super.render(stack, mouseX, mouseY, partialTicks);
@@ -47,8 +41,10 @@ public class ExampleChestScreen extends AbstractContainerScreen<ExampleChestCont
     @Override
     protected void init() {
         super.init();
-        this.beanButton = addRenderableWidget(new ExtendedButton(this.leftPos, this.topPos, 16,16, new TextComponent("..."), (btn) -> {
-            Minecraft.getInstance().player.displayClientMessage(new TextComponent("Please don't hit me :("), false);
+        this.beanButton = addRenderableWidget(
+                new ExtendedButton(this.leftPos, this.topPos, 16,16, new TextComponent("..."), (btn) -> {
+                    assert Minecraft.getInstance().player != null;
+                    Minecraft.getInstance().player.displayClientMessage(new TextComponent("Please don't hit me :("), false);
         }));
     }
 

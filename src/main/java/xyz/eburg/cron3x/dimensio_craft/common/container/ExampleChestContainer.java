@@ -28,8 +28,10 @@ public class ExampleChestContainer extends AbstractContainerMenu {
 
         final int slotSizePlus2 = 18, startX = 8, startY=159, hotbarY = 217, invY = 18; //slotSizePlus2 = 18, startX = 7, startY=85, hotbarY = 143, invY = 10
 
-        for (int row = 0; row < 9; row++) {
-            for (int column = 0; column < 7; column++) {
+
+        for (int column = 0; column < 7; column++) {
+
+            for (int row = 0; row < 9; row++) {
                 addSlot(new SlotItemHandler(slot, row * 9 + column, startX+column*slotSizePlus2, invY+row*slotSizePlus2));
             }
         }
@@ -62,7 +64,7 @@ public class ExampleChestContainer extends AbstractContainerMenu {
             final ItemStack item = slot.getItem();
             retStack = item.copy();
             if (index < INV_SIZE) {
-                if (!moveItemStackTo(item, INV_SIZE, this.slots.size(), true)) // 27?
+                if (!moveItemStackTo(item, INV_SIZE, this.slots.size(), true))
                     return ItemStack.EMPTY;
             } else if (!moveItemStackTo(item, 0, INV_SIZE, false))
                 return ItemStack.EMPTY;
