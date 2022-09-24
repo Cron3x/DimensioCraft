@@ -1,6 +1,5 @@
 package xyz.eburg.cron3x.dimensio_craft.client.event;
 
-import com.google.common.eventbus.Subscribe;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
