@@ -39,13 +39,16 @@ public class ElevatorControllerScreen extends AbstractContainerScreen<ElevatorCo
         final int scaledHeight = (int) mapNumber(energyStored, 0, maxEnergy, 0, 62);
 
         bindTexture();
-        blit(stack, this.leftPos + 118, this.topPos + 75 - scaledHeight, 176, 62 - scaledHeight, 30, scaledHeight);
+        blit(stack, this.leftPos + 8, this.topPos + 85 - scaledHeight, 176, 62 - scaledHeight, 30, scaledHeight);
 
         this.font.draw(stack, this.title, this.leftPos + 8, this.topPos + 5, 0x404040);
         this.font.draw(stack, this.playerInventoryTitle, this.leftPos + 8, this.topPos + 95, 0x404040);
 
-        this.font.draw(stack, new TextComponent(new TranslatableComponent("text."+ DimensioCraft.MOD_ID + ".elevator_controller" + ".dimension") + getDimension()) , this.leftPos + 78, topPos + 28, 0x404040);
-        this.font.draw(stack, new TextComponent(new TranslatableComponent("text."+ DimensioCraft.MOD_ID + ".elevator_controller" + ".output_pos")+ getOutputPos()), this.leftPos + 78, topPos + 40, 0x404040);
+        final TranslatableComponent dimText = new TranslatableComponent("text."+ DimensioCraft.MOD_ID + ".elevator_controller.dimension", getDimension());
+        final TranslatableComponent outputPosText = new TranslatableComponent("text."+ DimensioCraft.MOD_ID + ".elevator_controller.output_pos", getOutputPos());
+
+        this.font.draw(stack, dimText, this.leftPos + 78, topPos + 28, 0x404040);
+        this.font.draw(stack, outputPosText, this.leftPos + 78, topPos + 40, 0x404040);
 
         drawCenteredString(stack, this.font, energyStored + "", this.leftPos + 133, this.topPos + 4, 0xFFFFFF);
     }

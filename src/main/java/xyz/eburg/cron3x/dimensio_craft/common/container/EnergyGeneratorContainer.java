@@ -3,34 +3,38 @@ package xyz.eburg.cron3x.dimensio_craft.common.container;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.MenuConstructor;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.ModBlocks;
-import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ElevatorControllerBlockEntity;
-import xyz.eburg.cron3x.dimensio_craft.common.container.syncdata.ElevatorControllerContainerData;
+import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.EnergyGeneratorBlockEntity;
+import xyz.eburg.cron3x.dimensio_craft.common.container.syncdata.EnergyGeneratorContainerData;
 
-public class ElevatorControllerContainer extends AbstractContainerMenu {
-
-    private static final int dataAmount = 2; // increase if I need more data space
-
+public class EnergyGeneratorContainer extends AbstractContainerMenu {
     private final ContainerLevelAccess containerAccess;
     public final ContainerData data;
 
-    public ElevatorControllerContainer(int id, Inventory playerInventory) {
-        this(id, playerInventory, new ItemStackHandler(1), BlockPos.ZERO, new SimpleContainerData(dataAmount));
-
+    // Client Constructor
+    public EnergyGeneratorContainer(int id, Inventory playerInv) {
+        this(id, playerInv, new ItemStackHandler(1), BlockPos.ZERO, new SimpleContainerData(4));
     }
 
-    public ElevatorControllerContainer(int id, Inventory playerInv, ItemStackHandler slots, BlockPos pos, ContainerData data) {
-        super(ModContainers.ELEVATOR_CONTROLLER.get(), id);
+    // Server constructor
+    public EnergyGeneratorContainer(int id, Inventory playerInv, IItemHandler slots, BlockPos pos, ContainerData data) {
+        super(ModContainers.ENERGY_GENERATOR.get(), id);
         this.containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
         this.data = data;
-        final int slotSizePlus2 = 18, startX = 8, startY = 106, hotbarY = 164, inventoryY = 18;
 
-        addSlot(new SlotItemHandler(slots, 0, 51,
-                45));
+        final int slotSizePlus2 = 18, startX = 8, startY = 86, hotbarY = 144;
+
+        addSlot(new SlotItemHandler(slots, 0, 44, 36));
 
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
@@ -71,10 +75,11 @@ public class ElevatorControllerContainer extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(this.containerAccess, player, ModBlocks.ELEVATOR_CONTROLLER.get());
+        return stillValid(this.containerAccess, player, ModBlocks.ENERGY_GENERATOR.get());
     }
 
-    public static MenuConstructor getServerContainer(ElevatorControllerBlockEntity blockEntity, BlockPos pos) {
-        return (id, playerInv, player) -> new ElevatorControllerContainer(id, playerInv, blockEntity.inventory, pos, new ElevatorControllerContainerData(blockEntity, dataAmount));
+    public static MenuConstructor getServerContainer(EnergyGeneratorBlockEntity be, BlockPos pos) {
+        return (id, playerInv, player) -> new EnergyGeneratorContainer(id, playerInv, be.inventory, pos,
+                new EnergyGeneratorContainerData(be, 4));
     }
 }

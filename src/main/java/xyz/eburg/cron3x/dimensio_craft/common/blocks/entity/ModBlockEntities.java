@@ -20,6 +20,10 @@ public class ModBlockEntities {
             .register("elevator_controller", () -> BlockEntityType.Builder
                     .of(ElevatorControllerBlockEntity::new, ModBlocks.ELEVATOR_CONTROLLER.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<EnergyGeneratorBlockEntity>> ENERGY_GENERATOR = BLOCK_ENTITIES
+            .register("energy_generator", () -> BlockEntityType.Builder
+                    .of(EnergyGeneratorBlockEntity::new, ModBlocks.ENERGY_GENERATOR.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

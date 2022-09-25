@@ -18,6 +18,9 @@ public class ModContainers {
     public static final RegistryObject<MenuType<ElevatorControllerContainer>> ELEVATOR_CONTROLLER =
             CONTAINERS.register("elevator_controller", () -> new MenuType<>(ElevatorControllerContainer::new));
 
+    public static final RegistryObject<MenuType<EnergyGeneratorContainer>> ENERGY_GENERATOR =
+            CONTAINERS.register("energy_generator", () -> new MenuType<>(EnergyGeneratorContainer::new));
+
     public static void register(IEventBus eventBus) {
         CONTAINERS.register(eventBus);
     }

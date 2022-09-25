@@ -28,7 +28,6 @@ public class ModBlocks {
             () -> new SlimeBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .strength(9f)
-                    .dynamicShape()
                     .requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
     public static final RegistryObject<Block> ELEVATOR_CONTROLLER = registerBlock("elevator_controller",
@@ -38,8 +37,10 @@ public class ModBlocks {
             () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
     public static final RegistryObject<ExampleChestBlock> EXAMPLE_CHEST = registerBlock("example_chest",
-            () -> new ExampleChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);;
+            () -> new ExampleChestBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);;
 
+    public static final RegistryObject<EnergyGeneratorBlock> ENERGY_GENERATOR = registerBlock("energy_generator",
+            () -> new EnergyGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

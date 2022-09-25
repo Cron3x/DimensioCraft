@@ -16,6 +16,6 @@
   "buttons.dimensio_craft.elevator_controller.write_chip": "Write Chip",
   "buttons.dimensio_craft.elevator_controller.scan": "Scan Multiblock",
 
-  "text.dimensio_craft.elevator_controller.dimension": "Dimension: ",
-  "text.dimensio_craft.elevator_controller.output_pos": "Coordinates: "
+  "text.dimensio_craft.elevator_controller.dimension": "Dimension ",
+  "text.dimensio_craft.elevator_controller.output_pos": "Coordinates "
 }
