@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
@@ -24,13 +25,15 @@ public class ExampleChestScreen extends AbstractContainerScreen<ExampleChestCont
         super(container, playerInv, title);
         this.leftPos = 0;
         this.topPos = 0;
+        this.imageWidth = 176;
+        this.imageHeight = 240;
     }
 
     @Override
     public void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
         super.render(stack, mouseX, mouseY, partialTicks);
         this.font.draw(stack, this.title, this.leftPos + 20, this.topPos + 5, 0x404040);
-        this.font.draw(stack, this.playerInventoryTitle, this.leftPos + 8, this.topPos + 75, 0x404040);
+        this.font.draw(stack, this.playerInventoryTitle, this.leftPos + 8, this.topPos + 144, 0x404040);
     }
 
     @Override
@@ -52,5 +55,13 @@ public class ExampleChestScreen extends AbstractContainerScreen<ExampleChestCont
 
     @Override
     protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
+    }
+
+
+    private void scan() {
+        Minecraft.getInstance().player.displayClientMessage(new TextComponent("beans"), false);
+    }
+    private void write_chip() {
+        Minecraft.getInstance().player.displayClientMessage(new TextComponent("beans"), false);
     }
 }

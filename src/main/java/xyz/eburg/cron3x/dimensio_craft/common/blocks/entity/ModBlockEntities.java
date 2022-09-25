@@ -16,6 +16,10 @@ public class ModBlockEntities {
             .register("example_chest", () -> BlockEntityType.Builder
                     .of(ExampleChestBlockEntity::new, ModBlocks.EXAMPLE_CHEST.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<ElevatorControllerBlockEntity>> ELEVATOR_CONTROLLER = BLOCK_ENTITIES
+            .register("elevator_controller", () -> BlockEntityType.Builder
+                    .of(ElevatorControllerBlockEntity::new, ModBlocks.ELEVATOR_CONTROLLER.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

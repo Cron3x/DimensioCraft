@@ -37,7 +37,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> COMPUTER_BLOCK = registerBlock("computer",
             () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
-    public static final RegistryObject<ExampleChestBlock>  EXAMPLE_CHEST = registerBlock("example_chest",
+    public static final RegistryObject<ExampleChestBlock> EXAMPLE_CHEST = registerBlock("example_chest",
             () -> new ExampleChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);;
 
 

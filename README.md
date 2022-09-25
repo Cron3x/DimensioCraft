@@ -13,7 +13,8 @@ It is not ment to be used without other mods. For now there are now mod specific
 ## TODO:
  - [X] Get Started
  - [ ] Implement Activation Tool
- - [ ] Implement Forge Energy
+ - [X] Implement Forge Energy
+ - [ ] Implement Creative Energy Cell
 
 ### --- Notes ---
  

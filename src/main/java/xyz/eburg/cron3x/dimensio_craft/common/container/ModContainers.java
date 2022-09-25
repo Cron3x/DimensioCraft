@@ -15,6 +15,9 @@ public class ModContainers {
     public static final RegistryObject<MenuType<ExampleChestContainer>> EXAMPLE_CHEST =
             CONTAINERS.register("example_chest", () -> new MenuType<>(ExampleChestContainer::new));
 
+    public static final RegistryObject<MenuType<ElevatorControllerContainer>> ELEVATOR_CONTROLLER =
+            CONTAINERS.register("elevator_controller", () -> new MenuType<>(ElevatorControllerContainer::new));
+
     public static void register(IEventBus eventBus) {
         CONTAINERS.register(eventBus);
     }
