@@ -10,12 +10,13 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
 import xyz.eburg.cron3x.dimensio_craft.DimensioCraft;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ElevatorControllerContainer;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ExampleChestContainer;
 
-public class ElevatorControllerScreen extends AbstractContainerScreen<ElevatorControllerContainer> {
+public class ElevatorControllerScreen extends AbstractContainerScreen<ElevatorControllerContainer> { //extends
     private static final ResourceLocation TEXTURE = new ResourceLocation(DimensioCraft.MOD_ID,
             "textures/gui/container/elevator_controller.png");
 
