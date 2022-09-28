@@ -1,49 +1,35 @@
 package xyz.eburg.cron3x.dimensio_craft.common.blocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+import org.jetbrains.annotations.Nullable;
+import xyz.eburg.cron3x.dimensio_craft.common.blocks.blockstate.MachineStructureFrameStates;
+import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.MachineStructureFrameBlockEntity;
 
-public class MachineStructureFrameBlock extends Block {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING ;
+public class MachineStructureFrameBlock extends Block implements EntityBlock {
 
-    public MachineStructureFrameBlock(Properties propertiy) {
-        super(propertiy);
+    private static final Property<MachineStructureFrameStates> STATES = EnumProperty.create("machine_state", MachineStructureFrameStates.class);
+    public MachineStructureFrameBlock(Properties properties) {
+        super(properties);
+        registerDefaultState(defaultBlockState().setValue(STATES, MachineStructureFrameStates.DEFAULT));
     }
 
-    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16); //TODO: if it works, maybe replace with suggested Code
-
+    @Nullable
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new MachineStructureFrameBlockEntity(pos,state);
     }
-
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-    }
-
-    @Override
-    public BlockState rotate (BlockState pState, Rotation pRotation){
-        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
-    }
-
-    @Override
-    public BlockState mirror (BlockState pState, Mirror pMirror){
-        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
-    }
-
-    @Override
-    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(STATES);
     }
 }

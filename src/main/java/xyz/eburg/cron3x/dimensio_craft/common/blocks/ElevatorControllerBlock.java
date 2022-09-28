@@ -24,6 +24,8 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
@@ -32,15 +34,18 @@ import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ElevatorControllerBl
 import xyz.eburg.cron3x.dimensio_craft.common.container.ElevatorControllerContainer;
 
 public class ElevatorControllerBlock extends HorizontalDirectionalBlock implements EntityBlock {
+
+    private static Property<Boolean> multiblock = BooleanProperty.create("multiblock");
+
     public ElevatorControllerBlock(Properties properties) {
         super(properties);
-        registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH));
+        registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(multiblock, false));
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        return defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
+        return defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite()).setValue(multiblock, false);
     }
 
     @Override
@@ -54,6 +59,7 @@ public class ElevatorControllerBlock extends HorizontalDirectionalBlock implemen
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new ElevatorControllerBlockEntity(pos, state);
     }
+
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
@@ -144,7 +150,6 @@ public class ElevatorControllerBlock extends HorizontalDirectionalBlock implemen
                                 && level.getBlockState(block_base_ns_l1).getBlock().equals(Blocks.LIGHT_GRAY_CONCRETE)
                                 && level.getBlockState(block_top_ns_l1).getBlock().equals(Blocks.LIGHT_GRAY_CONCRETE)
                         ) {
-
                         }
                 } else if (
                             level.getBlockState(block_top_ew_l0).getBlock().equals(ModBlocks.STRUCTURE_FRAME_IRON_BLOCK.get())
@@ -161,8 +166,12 @@ public class ElevatorControllerBlock extends HorizontalDirectionalBlock implemen
                 }
             }
 
+            BlockState newState = state.setValue(multiblock, true);
+            level.setBlockAndUpdate(pos, newState);
+
             final MenuProvider container = new SimpleMenuProvider(ElevatorControllerContainer.getServerContainer(chest, pos), ElevatorControllerBlockEntity.TITLE);
             NetworkHooks.openGui((ServerPlayer) player, container, pos);
+
         }
         return InteractionResult.SUCCESS;
     }
@@ -170,6 +179,7 @@ public class ElevatorControllerBlock extends HorizontalDirectionalBlock implemen
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
+        builder.add(multiblock);
         builder.add(FACING);
     }
 }

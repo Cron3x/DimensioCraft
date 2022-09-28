@@ -24,18 +24,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> CITRINE_BLOCK = registerBlock("citrine_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
-    public static final RegistryObject<Block> STRUCTURE_FRAME_IRON_BLOCK = registerBlock("iron_structure_frame",
-            () -> new SlimeBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .noOcclusion()
-                    .strength(9f)
-                    .requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
-
+    public static final RegistryObject<MachineStructureFrameBlock> STRUCTURE_FRAME_IRON_BLOCK = registerBlock("iron_structure_frame",
+            () -> new MachineStructureFrameBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
     public static final RegistryObject<Block> ELEVATOR_CONTROLLER = registerBlock("elevator_controller",
             () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
-
-    public static final RegistryObject<Block> COMPUTER_BLOCK = registerBlock("computer",
-            () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
-
     public static final RegistryObject<ExampleChestBlock> EXAMPLE_CHEST = registerBlock("example_chest",
             () -> new ExampleChestBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);;
 

@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=north": {
+    "multiblock=false,facing=north": {
       "model":  "dimensio_craft:block/elevator_controller"
     },
-    "facing=east": {
+    "multiblock=false,facing=east": {
       "model":  "dimensio_craft:block/elevator_controller",
       "y": 90
     },
-    "facing=south": {
+    "multiblock=false,facing=south": {
       "model":  "dimensio_craft:block/elevator_controller",
       "y": 180
     },
-    "facing=west": {
+    "multiblock=false,facing=west": {
       "model":  "dimensio_craft:block/elevator_controller",
+      "y": 270
+    },
+    "multiblock=true,facing=north": {
+      "model":  "dimensio_craft:block/space_elevator"
+    },
+    "multiblock=true,facing=east": {
+      "model":  "dimensio_craft:block/space_elevator",
+      "y": 90
+    },
+    "multiblock=true,facing=south": {
+      "model":  "dimensio_craft:block/space_elevator",
+      "y": 180
+    },
+    "multiblock=true,facing=west": {
+      "model":  "dimensio_craft:block/space_elevator",
       "y": 270
     }
   }
