@@ -25,7 +25,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
 
     public static final RegistryObject<MachineStructureFrameBlock> STRUCTURE_FRAME_IRON_BLOCK = registerBlock("iron_structure_frame",
-            () -> new MachineStructureFrameBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
+            () -> new MachineStructureFrameBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
     public static final RegistryObject<Block> ELEVATOR_CONTROLLER = registerBlock("elevator_controller",
             () -> new ElevatorControllerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)), ModCreativeModeTab.DIMENSIO_CRAFT_TAB);
     public static final RegistryObject<ExampleChestBlock> EXAMPLE_CHEST = registerBlock("example_chest",

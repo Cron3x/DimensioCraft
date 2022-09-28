@@ -23,7 +23,7 @@ import xyz.eburg.cron3x.dimensio_craft.common.container.ModContainers;
 public class ClientModEvents {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.STRUCTURE_FRAME_IRON_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.STRUCTURE_FRAME_IRON_BLOCK.get(), RenderType.cutout());
         MenuScreens.register(ModContainers.EXAMPLE_CHEST.get(), ExampleChestScreen::new);
         MenuScreens.register(ModContainers.ELEVATOR_CONTROLLER.get(), ElevatorControllerScreen::new);
         MenuScreens.register(ModContainers.ENERGY_GENERATOR.get(), EnergyGeneratorScreen::new);

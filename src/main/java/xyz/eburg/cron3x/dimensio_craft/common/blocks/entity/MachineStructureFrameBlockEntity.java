@@ -9,10 +9,10 @@ import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.util.InventoryBlockE
 
 public class MachineStructureFrameBlockEntity extends InventoryBlockEntity {
     public static final Component TITLE = new TranslatableComponent(
-            "container." + DimensioCraft.MOD_ID + ".machine_structure_frame");
+            "container." + DimensioCraft.MOD_ID + ".iron_structure_frame");
 
     public MachineStructureFrameBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.STRUCTURE_FRAME_IRON_BLOCK.get(), pos, state, 0);
+        super(ModBlockEntities.STRUCTURE_FRAME_IRON_BLOCK.get(), pos, state, 1);
     }
 
 }

@@ -16,6 +16,8 @@ import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.MachineStructureFram
 
 public class MachineStructureFrameBlock extends Block implements EntityBlock {
 
+    //TODO: Add OBJ blockstate
+
     private static final Property<MachineStructureFrameStates> STATES = EnumProperty.create("machine_state", MachineStructureFrameStates.class);
     public MachineStructureFrameBlock(Properties properties) {
         super(properties);

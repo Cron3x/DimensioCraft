@@ -1,0 +1,11 @@
+{
+  "__comment": "Add the following line on the same level as a 'model' declaration.",
+  "loader": "forge:obj",
+  "flip-v": true,
+  "model": "dimensio_craft:models/block/space_elevator/space_elevator.obj",
+  "textures": {
+    "_comment": "Can refer to in .mtl using #texture0",
+    "texture0": "minecraft:block/dirt",
+    "particle": "minecraft:block/dirt"
+  }
+}

@@ -7,7 +7,8 @@ public enum MachineStructureFrameStates implements StringRepresentable {
     ELEVATOR_PANEL_N ("elevator_panel_n"),
     ELEVATOR_PANEL_S ("elevator_panel_s"),
     ELEVATOR_PANEL_E ("elevator_panel_e"),
-    ELEVATOR_PANEL_W ("elevator_panel_n")
+    ELEVATOR_PANEL_W ("elevator_panel_w"),
+    EMPTY("empty"),
     ;
 
     private final String name;

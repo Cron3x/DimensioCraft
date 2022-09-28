@@ -25,7 +25,7 @@ public class ModBlockEntities {
                     .of(EnergyGeneratorBlockEntity::new, ModBlocks.ENERGY_GENERATOR.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<MachineStructureFrameBlockEntity>> STRUCTURE_FRAME_IRON_BLOCK = BLOCK_ENTITIES
-            .register("machine_structure_frame", () -> BlockEntityType.Builder
+            .register("iron_structure_frame", () -> BlockEntityType.Builder
                     .of(MachineStructureFrameBlockEntity::new, ModBlocks.STRUCTURE_FRAME_IRON_BLOCK.get()).build(null));
 
 
