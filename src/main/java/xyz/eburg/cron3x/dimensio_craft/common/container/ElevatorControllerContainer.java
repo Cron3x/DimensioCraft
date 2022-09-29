@@ -13,7 +13,7 @@ import xyz.eburg.cron3x.dimensio_craft.common.container.syncdata.ElevatorControl
 
 public class ElevatorControllerContainer extends AbstractContainerMenu {
 
-    private static final int dataAmount = 2; // increase if I need more data space
+    private static final int dataAmount = 3; // increase if I need more data space
 
     private final ContainerLevelAccess containerAccess;
     public final ContainerData data;

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -12,8 +13,10 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import org.jetbrains.annotations.Nullable;
+import xyz.eburg.cron3x.dimensio_craft.DimensioCraft;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.blockstate.MachineStructureFrameStates;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.MachineStructureFrameBlockEntity;
+import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ModBlockEntities;
 
 public class MachineStructureFrameBlock extends Block implements EntityBlock {
 
@@ -42,4 +45,11 @@ public class MachineStructureFrameBlock extends Block implements EntityBlock {
         super.createBlockStateDefinition(builder);
         builder.add(STATES);
     }
+
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
+        super.onNeighborChange(state, level, pos, neighbor);
+
+    }
+
 }

@@ -14,7 +14,7 @@ public class ModItems {
     public static RegistryObject<Item> CITRINE = ITEMS.register("citrine",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
     public static RegistryObject<Item> ELEVATOR_DESTINATION_CHIP = ITEMS.register("elevator_destination_chip",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
+            () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
     public static RegistryObject<Item> ELEVATOR_UPGRADE_CHIP = ITEMS.register("elevator_upgrade_chip",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.DIMENSIO_CRAFT_TAB)));
     public static RegistryObject<Item> ACTIVATION_TOOL = ITEMS.register("activation_tool",

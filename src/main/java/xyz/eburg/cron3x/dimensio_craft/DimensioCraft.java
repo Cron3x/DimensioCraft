@@ -7,10 +7,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.DrawSelectionEvent;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -35,10 +38,7 @@ public class DimensioCraft {
 
     public static final String MOD_ID = "dimensio_craft";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
-    public void log_info(String msg){
-        LOGGER.info(msg);
-    }
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public DimensioCraft() {
 
@@ -52,5 +52,13 @@ public class DimensioCraft {
         ModItems.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModContainers.register(eventBus);
+    }
+
+    @SubscribeEvent
+    public static void te (BlockEvent.EntityMultiPlaceEvent event) {
+        BlockState placedBlock = event.getPlacedBlock();
+        if (placedBlock.getBlock().equals(ModBlocks.ELEVATOR_CONTROLLER.get())){
+
+        }
     }
 }

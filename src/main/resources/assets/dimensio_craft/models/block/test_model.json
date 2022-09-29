@@ -1,0 +1,10 @@
+{
+  "__comment": "Add the following line on the same level as a 'model' declaration.",
+  "loader": "forge:obj",
+  "flip-v": true,
+  "model": "dimensio_craft:models/block/test_model.obj",
+  "textures": {
+    "texture0": "dimensio_craft:block/iron_structure_frame_complete",
+    "particle": "dimensio_craft:block/iron_structure_frame_complete"
+  }
+}
