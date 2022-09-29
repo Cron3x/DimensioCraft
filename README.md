@@ -9,6 +9,7 @@ It is not ment to be used without other mods. For now there are now mod specific
  - Space Elevator
  - Stargate Portal
  - Item to activate Multiblock Structure
+ - Implement cool looking armor
 
 ## TODO:
  - [X] Get Started
