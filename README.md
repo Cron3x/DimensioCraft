@@ -24,7 +24,5 @@ It is not ment to be used without other mods. For now there are now mod specific
  
 ### --- Notes ---
  
-- Multiblock Structures:
-   - https://www.youtube.com/watch?v=GQRxeJSoUI4
- - Energy Tutorial:
+- Energy Tutorial:
    - https://www.youtube.com/watch?v=Eyf4CLUKevc
