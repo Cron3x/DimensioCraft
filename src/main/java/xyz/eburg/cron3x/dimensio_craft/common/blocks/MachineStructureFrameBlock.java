@@ -3,6 +3,7 @@ package xyz.eburg.cron3x.dimensio_craft.common.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -16,7 +17,13 @@ import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.MachineStructureFram
 
 public class MachineStructureFrameBlock extends Block implements EntityBlock {
 
-    //TODO: Add OBJ blockstate
+    /*~TODO:
+    *   ---<0>---
+    *   Voxel shape depending on block state
+    *   implement facing block state
+    *   ---<0>---
+    *   Implement slab, side-slab blockstate
+    ~*/
 
     private static final Property<MachineStructureFrameStates> STATES = EnumProperty.create("machine_state", MachineStructureFrameStates.class);
     public MachineStructureFrameBlock(Properties properties) {

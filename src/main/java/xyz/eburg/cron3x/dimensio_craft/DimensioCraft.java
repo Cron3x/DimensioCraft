@@ -2,11 +2,13 @@ package xyz.eburg.cron3x.dimensio_craft;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.client.event.DrawSelectionEvent;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import xyz.eburg.cron3x.dimensio_craft.client.event.ClientModEvents;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.ModBlocks;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ModBlockEntities;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ModContainers;
@@ -33,17 +36,15 @@ public class DimensioCraft {
     public static final String MOD_ID = "dimensio_craft";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+    public void log_info(String msg){
+        LOGGER.info(msg);
+    }
 
     public DimensioCraft() {
 
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        // Register the setup method for modloading
-        eventBus.addListener(this::setup);
-
-        // Register ourselves for server and other game events we are interested in
-
         //eventBus.addListener(ClientModEvents::clientSetup);
+
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -51,29 +52,5 @@ public class DimensioCraft {
         ModItems.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModContainers.register(eventBus);
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        // Some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-    }
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
-
-    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
-    // Event bus for receiving Registry Events)
-
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // Register a new block here
-            LOGGER.info("HELLO from Register Block");
-        }
     }
 }

@@ -1,23 +1,14 @@
 {
   "variants": {
     "machine_state=default": {"model":  "dimensio_craft:block/iron_structure_frame"},
-    "machine_state=elevator_panel_n": {
+    "machine_state=space_elevator": {
       "model":  "dimensio_craft:block/space_elevator/space_elevator"
-    },
-    "machine_state=elevator_panel_s": {
-      "model":  "dimensio_craft:block/space_elevator/panel",
-      "y": 180
-    },
-    "machine_state=elevator_panel_e": {
-      "model":  "dimensio_craft:block/space_elevator/panel",
-      "y": 90
-    },
-    "machine_state=elevator_panel_w": {
-      "model":  "dimensio_craft:block/space_elevator/panel",
-      "y": 270
     },
     "machine_state=empty": {
       "model": "dimensio_craft:block/dc_empty"
+    },
+    "machine_state=empty_slab": {
+      "model": "dimensio_craft:block/empty_slab"
     }
   }
 }

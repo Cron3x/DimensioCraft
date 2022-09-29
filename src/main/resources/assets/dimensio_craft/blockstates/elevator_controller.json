@@ -16,7 +16,13 @@
       "y": 270
     },
     "multiblock=true,facing=north": {
-      "model":  "dimensio_craft:block/space_elevator"
+      "loader": "forge:obj",
+      "flip-v": true,
+      "model": "dimensio_craft:models/block/test_model.obj",
+      "textures": {
+        "texture0": "minecraft:block/dirt",
+        "particle": "minecraft:block/dirt"
+      }
     },
     "multiblock=true,facing=east": {
       "model":  "dimensio_craft:block/space_elevator",
