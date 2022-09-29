@@ -23,6 +23,7 @@ public class MachineStructureFrameBlock extends Block implements EntityBlock {
     *   implement facing block state
     *   ---<0>---
     *   Implement slab, side-slab blockstate
+    *   implement slave - master multiblock
     ~*/
 
     private static final Property<MachineStructureFrameStates> STATES = EnumProperty.create("machine_state", MachineStructureFrameStates.class);
