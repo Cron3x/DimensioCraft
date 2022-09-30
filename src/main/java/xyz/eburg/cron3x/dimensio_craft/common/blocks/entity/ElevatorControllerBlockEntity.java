@@ -42,6 +42,7 @@ public class ElevatorControllerBlockEntity extends InventoryBlockEntity {
         this.energy = LazyOptional.of(() -> this.energyStorage);
         this.connectedFramesStorage = createConnectedFrames();
         this.connectedFrames = LazyOptional.of(() -> this.connectedFramesStorage);
+        DimensioCraft.LOGGER.debug("public ElevatorControllerBlockEntity");
     }
 
     @Override
@@ -62,14 +63,13 @@ public class ElevatorControllerBlockEntity extends InventoryBlockEntity {
         this.energyStorage.setEnergy(tag.getInt("Energy"));
 
         byte[] bytes = tag.getByteArray("ConnectedFrames");
-        this.connectedFramesStorage.addAll(FrameStorage.convBytes2List(bytes));
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         tag.putInt("Energy", this.energyStorage.getEnergyStored());
-        tag.putByteArray("ConnectedFrames", FrameStorage.convList2Bytes(this.connectedFramesStorage));
+        tag.putByteArray("ConnectedFrames", "EMPTY".getBytes());
     }
 
     private CustomEnergyStorage createEnergyStorage() {
@@ -78,4 +78,6 @@ public class ElevatorControllerBlockEntity extends InventoryBlockEntity {
     private List<BlockEntity> createConnectedFrames() {
         return List.of();
     }
+
+
 }

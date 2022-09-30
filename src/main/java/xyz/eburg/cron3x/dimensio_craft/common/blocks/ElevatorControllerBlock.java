@@ -28,9 +28,11 @@ import xyz.eburg.cron3x.dimensio_craft.DimensioCraft;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ElevatorControllerBlockEntity;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ModBlockEntities;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ElevatorControllerContainer;
+import xyz.eburg.cron3x.dimensio_craft.common.container.syncdata.custom_storage.FrameStorage;
 
 import java.util.Collection;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Stack;
 
 public class ElevatorControllerBlock extends HorizontalDirectionalBlock implements EntityBlock {
@@ -85,9 +87,5 @@ public class ElevatorControllerBlock extends HorizontalDirectionalBlock implemen
 
     private void getMultiBlock(BlockPlaceContext ctx) { //>  Rename: getStructureFrames;
         DimensioCraft.LOGGER.debug("getMutliBlock");
-
-        if (ctx.getLevel().isClientSide) return;
-        
-
     }
 }
