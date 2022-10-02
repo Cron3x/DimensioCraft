@@ -14,8 +14,9 @@ public class ElevatorControllerContainerData extends SimpleContainerData {
     @Override
     public int get(int key) {
         return switch (key) {
-            case 0 ->this.blockEntity.energyStorage.getEnergyStored();
+            case 0 -> this.blockEntity.energyStorage.getEnergyStored();
             case 1 -> this.blockEntity.energyStorage.getMaxEnergyStored();
+            case 2 -> -1;
             default -> throw new UnsupportedOperationException("No key: `" + key + "` in: `" + blockEntity +"`");
         };
     }

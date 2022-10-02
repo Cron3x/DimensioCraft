@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -20,20 +21,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.levelgen.Column;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 import xyz.eburg.cron3x.dimensio_craft.DimensioCraft;
 import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ElevatorControllerBlockEntity;
-import xyz.eburg.cron3x.dimensio_craft.common.blocks.entity.ModBlockEntities;
 import xyz.eburg.cron3x.dimensio_craft.common.container.ElevatorControllerContainer;
-import xyz.eburg.cron3x.dimensio_craft.common.container.syncdata.custom_storage.FrameStorage;
+import xyz.eburg.cron3x.dimensio_craft.common.items.ActivationItem;
+import xyz.eburg.cron3x.dimensio_craft.common.items.ModItems;
 
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Stack;
+import java.util.Iterator;
 
 public class ElevatorControllerBlock extends HorizontalDirectionalBlock implements EntityBlock {
 
@@ -71,9 +68,14 @@ public class ElevatorControllerBlock extends HorizontalDirectionalBlock implemen
             /*BlockState newState = state.setValue(multiblock, true);
             level.setBlockAndUpdate(pos, newState);*/
 
+            for (Iterator<ItemStack> it = player.getHandSlots().iterator(); it.hasNext(); ) {
+                ItemStack is = it.next();
+                if (is.getItem() instanceof ActivationItem) {
+                    return InteractionResult.PASS;
+                }
+            }
             final MenuProvider container = new SimpleMenuProvider(ElevatorControllerContainer.getServerContainer(blockEntity, pos), ElevatorControllerBlockEntity.TITLE);
             NetworkHooks.openGui((ServerPlayer) player, container, pos);
-
         }
         return InteractionResult.SUCCESS;
     }
